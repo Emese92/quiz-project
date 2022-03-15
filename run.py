@@ -1,5 +1,7 @@
 import random
 import pyfiglet
+import colorama
+from colorama import Fore, Back, Style
 
 
 menu_options = {
@@ -48,7 +50,7 @@ def game():
     questions = {}
     score = 0
     
-    for i in range(10):   
+    for i in range(10): 
         int_x = random.randint(5, 10)
         int_y = random.randint(1, 5)
         operators = ["+", "-", "*"]
@@ -67,11 +69,14 @@ def game():
             except ValueError:
                 print("This was not a number!")
 
+        
         if questions.get(q) == str(user_answer):
             score += 1
-            print("Correct!\n")
+            print("\033[32m" + "Correct!\n")
+            print('\033[39m')
         else:
-            print("Incorrect!\n")
+            print("\033[31m" + "Incorrect!\n")
+            print('\033[39m')
 
     print(f"You got {score}/10\n")
     main()
