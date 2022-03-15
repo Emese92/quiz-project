@@ -50,6 +50,18 @@ def ask_user_name():
     print("Can you solve 10 random math problems without a calculator?\n")
     print("Good luck!\n")
 
+def show_game_over_message(score):
+    """
+    Adds a message to the end of the game with the score number the player reached.
+    print(f"You got {score}/10\n")
+    if score > 9:
+        print("Congatulations!\n)
+        print("You played very well!")
+    elif score > 5 and score < 9:
+        print("You are very close!")
+    else:
+        print("Try harder next time")
+
 def generate_random_questions():
     """
     Provides 10 random math calculations.
@@ -79,22 +91,21 @@ def start_game():
     questions = generate_random_questions()
     score = 0
     
-
     for q in questions.keys():
         while True:
             try:
-                user_answer = round(float(input(q)),2)
+                user_answer = round(float(input(q)), 2)
                 break
             except ValueError:
-                print("This was not a number!")
-       
+                print("This was not a number! Please enter your answer again!")
+
         if questions.get(q) == str(user_answer):
             score += 1
             cprint("Correct!\n", "green")
         else:
             cprint("Incorrect!\n", "red")
 
-    print(f"You got {score}/10\n")
+    show_game_over_message(score)
     show_game_menu()
 
 def show_welcome_message():
