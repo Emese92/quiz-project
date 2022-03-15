@@ -1,6 +1,5 @@
 import random
 import pyfiglet
-
 from termcolor import cprint
 
 
@@ -9,6 +8,8 @@ menu_options = {
     2: "Instructions",
     3: "Exit",
 }
+
+MAX_QUESTIONS = 10
 
 def show_instructions():
     """
@@ -49,33 +50,40 @@ def ask_user_name():
     print("Can you solve 10 random math problems without a calculator?\n")
     print("Good luck!\n")
 
+def generate_random_questions():
+    """
+    Provides 10 random math calculations.
+    """
+    questions = {}
+
+    for _ in range(MAX_QUESTIONS): 
+        int_x = random.randint(5, 10)
+        int_y = random.randint(1, 5)
+        operators = ["+", "-", "*", "/"]
+        operator_value = random.choice(operators)
+        question = str(int_x)+" " + str(operator_value) + " "+str(int_y)
+        answer = round(float(eval(question)),2)
+        question += " = "
+
+        questions.update({question: str(answer)})
+    return questions
+    
 
 def start_game():
     """
     The actual game function.
-    Provides 10 random math calculations.
     When correct answer is given it adds one to the score.
     CREDIT: Code inspired by a YouTube video:
     https://www.youtube.com/watch?v=h4n_ByFuD90
     """
-    questions = {}
+    questions = generate_random_questions()
     score = 0
     
-    for i in range(10): 
-        int_x = random.randint(5, 10)
-        int_y = random.randint(1, 5)
-        operators = ["+", "-", "*"]
-        operator_value = random.choice(operators)
-        question = str(int_x)+" " + str(operator_value) + " "+str(int_y)
-        answer = eval(question)
-        question += " = "
-
-        questions.update({question: str(answer)})
 
     for q in questions.keys():
         while True:
             try:
-                user_answer = int(input(q))
+                user_answer = round(float(input(q)),2)
                 break
             except ValueError:
                 print("This was not a number!")
@@ -85,7 +93,6 @@ def start_game():
             cprint("Correct!\n", "green")
         else:
             cprint("Incorrect!\n", "red")
-            
 
     print(f"You got {score}/10\n")
     show_game_menu()
