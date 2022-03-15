@@ -16,8 +16,7 @@ def game_menu():
         print("Press -", key, "- to -", menu_options[key])
     while True:
         print("\n")
-        game_choice = input("What would you like to do? \n")
-        
+        game_choice = input("What would you like to do? \n")       
         if game_choice == "1":
             break
         elif game_choice == "2":
@@ -35,7 +34,8 @@ def add_name():
     print("\n")
     print(f"Welcome {name}!\n")
     print("Can you solve 10 random math problems without a calculator?\n")
-    print(f"Good luck!\n")
+    print("Good luck!\n")
+
 
 def game():
     """
@@ -49,15 +49,15 @@ def game():
     score = 0
     
     for i in range(10):   
-        int_x = random.randint(5,10)
-        int_y = random.randint(1,5)
-        operators = ["+", "-", "*",]
+        int_x = random.randint(5, 10)
+        int_y = random.randint(1, 5)
+        operators = ["+", "-", "*"]
         operator_value = random.choice(operators)
-        question = str(int_x)+" "+ str(operator_value)+ " "+str(int_y)
+        question = str(int_x)+" " + str(operator_value) + " "+str(int_y)
         answer = eval(question)
-        question+=" = "
+        question += " = "
 
-        questions.update({question:str(answer)})
+        questions.update({question: str(answer)})
 
     for q in questions.keys():
         while True:
@@ -76,7 +76,7 @@ def game():
     print(f"You got {score}/10\n")
     main()
 
-def main():
+def main():  
     """
     Run all program functions
     """
