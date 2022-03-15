@@ -11,20 +11,30 @@ menu_options = {
 
 MAX_QUESTIONS = 10
 
+
 def show_instructions():
+
     """
-    Gives instructions to play the game.
+    Gives instructions how to play the game.
     """
     print("Instructions\n")
-    print(" ")
+    print("In this quiz you are going to get 10 random questions.")
+    print("These are all basic mathematical problems.")
+    print("You can mostly answer with a whole number.")
+    print("When the answer is not a whole number, ")
+    print("use 1 or 2 decimal places to get the correct answer.")
+    print("e.g. 1.5, 3.33,")
 
 
 def show_game_menu():
     """
     Displays menu options for the player to choose from.
     """
+    print("+--------------------------------+")
     for key in menu_options.keys():
-        print("Press -", key, "- to -", menu_options[key])
+        print("   Press -", key, "- to -", menu_options[key])
+    print("+--------------------------------+")
+     
     while True:
         print("\n")
         game_choice = input("What would you like to do? \n")       
@@ -44,23 +54,32 @@ def ask_user_name():
     """
     Asks for a valid player name.
     """
-    name = input('To start please enter your name: ')
-    print("\n")
-    print(f"Welcome {name}!\n")
-    print("Can you solve 10 random math problems without a calculator?\n")
-    print("Good luck!\n")
+    while True:
+        name = input('To start please enter your name: ')
+        if len(name) > 4:
+            print("\n")
+            print(f"Welcome {name}!\n")
+            print("Can you solve 10 random math problems without a calculator?\n")
+            print("Good luck!\n")
+            break
+        else:
+            print("Please enter a valid name")
+
 
 def show_game_over_message(score):
     """
-    Adds a message to the end of the game with the score number the player reached.
-    print(f"You got {score}/10\n")
+    Adds a message to the end of the game
+    with the score number the player reached.
+    """
+    cprint(f"You got {score}/10", "blue")
     if score > 9:
-        print("Congatulations!\n)
-        print("You played very well!")
+        cprint("Congatulations!\n", "blue")
+        cprint("You got it all right!\n", "blue")
     elif score > 5 and score < 9:
-        print("You are very close!")
+        cprint("You were very close!\n", "blue")
     else:
-        print("Try harder next time")
+        cprint("Try harder next time\n", "blue")
+
 
 def generate_random_questions():
     """
@@ -74,7 +93,7 @@ def generate_random_questions():
         operators = ["+", "-", "*", "/"]
         operator_value = random.choice(operators)
         question = str(int_x)+" " + str(operator_value) + " "+str(int_y)
-        answer = round(float(eval(question)),2)
+        answer = round(float(eval(question)), 2)
         question += " = "
 
         questions.update({question: str(answer)})
@@ -107,6 +126,7 @@ def start_game():
 
     show_game_over_message(score)
     show_game_menu()
+
 
 def show_welcome_message():
     """
