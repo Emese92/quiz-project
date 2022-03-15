@@ -1,16 +1,24 @@
 import random
 import pyfiglet
-import colorama
-from colorama import Fore, Back, Style
+
+from termcolor import cprint
 
 
 menu_options = {
     1: "Start",
-    2: "Exit",
+    2: "Instructions",
+    3: "Exit",
 }
 
+def show_instructions():
+    """
+    Gives instructions to play the game.
+    """
+    print("Instructions\n")
+    print(" ")
 
-def game_menu():
+
+def show_game_menu():
     """
     Displays menu options for the player to choose from.
     """
@@ -20,17 +28,20 @@ def game_menu():
         print("\n")
         game_choice = input("What would you like to do? \n")       
         if game_choice == "1":
-            break
+            return start_game()
         elif game_choice == "2":
+            show_instructions()
+            return show_game_menu()
+        elif game_choice == "3":
             print("Bye bye!")
             quit()
         else:
-            print("Invalid input, please choose from : 1, 2.")
+            print("Invalid input, please choose from : 1, 2, 3")
 
 
-def add_name():
+def ask_user_name():
     """
-    Asks for player name and explain the game.
+    Asks for a valid player name.
     """
     name = input('To start please enter your name: ')
     print("\n")
@@ -39,7 +50,7 @@ def add_name():
     print("Good luck!\n")
 
 
-def game():
+def start_game():
     """
     The actual game function.
     Provides 10 random math calculations.
@@ -68,26 +79,31 @@ def game():
                 break
             except ValueError:
                 print("This was not a number!")
-
-        
+       
         if questions.get(q) == str(user_answer):
             score += 1
-            print("\033[32m" + "Correct!\n")
-            print('\033[39m')
+            cprint("Correct!\n", "green")
         else:
-            print("\033[31m" + "Incorrect!\n")
-            print('\033[39m')
+            cprint("Incorrect!\n", "red")
+            
 
     print(f"You got {score}/10\n")
-    main()
+    show_game_menu()
+
+def show_welcome_message():
+    """
+    Prints out a colored title formatted with pyfiglet.
+    """
+    cprint(pyfiglet.figlet_format("Math Quiz", justify="center"), "blue")
+
 
 def main():  
     """
     Run all program functions
     """
-    game_menu()
-    add_name()
-    game()
+    show_welcome_message()
+    ask_user_name()
+    show_game_menu()
 
-print(pyfiglet.figlet_format("Math Quiz", justify="center"))
+
 main()
