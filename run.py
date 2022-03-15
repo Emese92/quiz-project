@@ -3,9 +3,8 @@ import pyfiglet
 
 
 menu_options = {
-    "s": "Start",
-    "r": "Restart",
-    "e": "Exit",
+    1: "Start",
+    2: "Exit",
 }
 
 
@@ -19,16 +18,13 @@ def game_menu():
         print("\n")
         game_choice = input("What would you like to do? \n")
         
-        if game_choice == "s":
+        if game_choice == "1":
             break
-        elif game_choice == "r":
-            print("Restarting...")
-            game()
-        elif game_choice == "e":
+        elif game_choice == "2":
             print("Bye bye!")
             quit()
         else:
-            print("Invalid input, please choose from : s, r, e.")
+            print("Invalid input, please choose from : 1, 2.")
 
 
 def add_name():
@@ -54,8 +50,8 @@ def game():
     
     for i in range(10):   
         int_x = random.randint(5,10)
-        int_y = random.randint(0,5)
-        operators = ["+", "-", "*"]
+        int_y = random.randint(1,5)
+        operators = ["+", "-", "*",]
         operator_value = random.choice(operators)
         question = str(int_x)+" "+ str(operator_value)+ " "+str(int_y)
         answer = eval(question)
@@ -63,9 +59,14 @@ def game():
 
         questions.update({question:str(answer)})
 
-
     for q in questions.keys():
-        user_answer = int(input(q))
+        while True:
+            try:
+                user_answer = int(input(q))
+                break
+            except ValueError:
+                print("This was not a number!")
+
         if questions.get(q) == str(user_answer):
             score += 1
             print("Correct!\n")
@@ -73,7 +74,7 @@ def game():
             print("Incorrect!\n")
 
     print(f"You got {score}/10\n")
-    game_menu()
+    main()
 
 def main():
     """
