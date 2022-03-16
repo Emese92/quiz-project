@@ -26,7 +26,7 @@ menu_options = {
 
 MAX_QUESTIONS = 10
 
-PLAYER_NAME = "User"
+player_name = "User"
 
 
 def show_instructions():
@@ -39,7 +39,7 @@ def show_instructions():
     print("These are all basic mathematical problems.")
     print("You can mostly answer with a whole number.")
     print("When the answer is not a whole number, ")
-    print("use 1 or 2 decimal places to get the correct answer.")
+    print("round up to 1 or 2 decimal places to get the correct answer.")
     print("e.g. 1.5, 3.33,")
 
 
@@ -71,7 +71,7 @@ def ask_user_name():
     """
     Asks for a valid player name.
     """
-    global PLAYER_NAME
+    global player_name
     while True:
         name = input('To start please enter your name: ')
         if len(name) > 0:
@@ -109,7 +109,7 @@ def update_scoreboard(score):
     now = datetime.now()
     date = now.strftime("%x %H:%M:%S")
 
-    scoreboard.append_row([PLAYER_NAME, score, date])
+    scoreboard.append_row([player_name, score, date])
 
 
 def generate_random_questions():
@@ -124,7 +124,9 @@ def generate_random_questions():
         operators = ["+", "-", "*", "/"]
         operator_value = random.choice(operators)
         question = str(int_x)+" " + str(operator_value) + " "+str(int_y)
-        answer = round(float(eval(question)), 1)
+        answer = round(float(eval(question)), 2)
+        # Used float() for the divisions that evaluate to floating point nums
+        # Used round() so the whole numbers doesn't need .00
         question += " = "
 
         questions.update({question: str(answer)})
