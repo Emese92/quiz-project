@@ -95,6 +95,20 @@ def show_game_over_message(score):
     else:
         cprint("Try harder next time\n", "blue")
 
+# update_scoreboard(name, score)
+
+
+def update_scoreboard(name, score):
+    """
+    Uploads name, score and date to the scoreboard
+    """
+    scoreboard = SHEET.worksheet("scoreboard")
+
+    now = datetime.datetime.now()
+    date = now.strftime("%x %H:%M:%S")
+
+    scoreboard.append_row([name, score, date])
+
 
 def generate_random_questions():
     """
@@ -108,7 +122,7 @@ def generate_random_questions():
         operators = ["+", "-", "*", "/"]
         operator_value = random.choice(operators)
         question = str(int_x)+" " + str(operator_value) + " "+str(int_y)
-        answer = round(float(eval(question)), 2)
+        answer = round(float(eval(question)), 1)
         question += " = "
 
         questions.update({question: str(answer)})
@@ -152,7 +166,7 @@ def show_welcome_message():
 
 def main():
     """
-    Run all program functions
+    Run title and start menu functions
     """
     show_welcome_message()
     ask_user_name()
