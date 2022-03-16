@@ -59,7 +59,8 @@ def ask_user_name():
         if len(name) > 4:
             print("\n")
             print(f"Welcome {name}!\n")
-            print("Can you solve 10 random math problems without a calculator?\n")
+            print("Can you solve 10 random math problems ")
+            print("without a calculator?\n")
             print("Good luck!\n")
             break
         else:
@@ -75,7 +76,7 @@ def show_game_over_message(score):
     if score > 9:
         cprint("Congatulations!\n", "blue")
         cprint("You got it all right!\n", "blue")
-    elif score > 5 and score < 9:
+    elif score >= 5 and score <= 9:
         cprint("You were very close!\n", "blue")
     else:
         cprint("Try harder next time\n", "blue")
