@@ -1,9 +1,10 @@
 import random
+from datetime import datetime
 import pyfiglet
 from termcolor import cprint
 import gspread
 from google.oauth2.service_account import Credentials
-from datetime import datetime
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -24,6 +25,8 @@ menu_options = {
 }
 
 MAX_QUESTIONS = 10
+
+PLAYER_NAME = "User"
 
 
 def show_instructions():
@@ -68,9 +71,10 @@ def ask_user_name():
     """
     Asks for a valid player name.
     """
+    global PLAYER_NAME
     while True:
         name = input('To start please enter your name: ')
-        if len(name) > 4:
+        if len(name) > 0:
             print("\n")
             print(f"Welcome {name}!\n")
             print("Can you solve 10 random math problems ")
@@ -95,19 +99,17 @@ def show_game_over_message(score):
     else:
         cprint("Try harder next time\n", "blue")
 
-# update_scoreboard(name, score)
 
-
-def update_scoreboard(name, score):
+def update_scoreboard(score):
     """
-    Uploads name, score and date to the scoreboard
+    Uploads name, score and date to the scoreboard.
     """
     scoreboard = SHEET.worksheet("scoreboard")
 
-    now = datetime.datetime.now()
+    now = datetime.now()
     date = now.strftime("%x %H:%M:%S")
 
-    scoreboard.append_row([name, score, date])
+    scoreboard.append_row([PLAYER_NAME, score, date])
 
 
 def generate_random_questions():
@@ -139,20 +141,21 @@ def start_game():
     questions = generate_random_questions()
     score = 0
 
-    for q in questions.keys():
+    for question in questions.keys():
         while True:
             try:
-                user_answer = round(float(input(q)), 2)
+                user_answer = round(float(input(question)), 2)
                 break
             except ValueError:
                 print("This was not a number! Please enter your answer again!")
 
-        if questions.get(q) == str(user_answer):
+        if questions.get(question) == str(user_answer):
             score += 1
             cprint("Correct!\n", "green")
         else:
             cprint("Incorrect!\n", "red")
 
+    update_scoreboard(score)
     show_game_over_message(score)
     show_game_menu()
 
