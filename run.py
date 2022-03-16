@@ -41,6 +41,7 @@ def show_instructions():
     print("When the answer is not a whole number, ")
     print("round up to 1 or 2 decimal places to get the correct answer.")
     print("e.g. 1.5, 3.33,")
+    print("At the end of the game your score will be uploaded to a scoreboard")
 
 
 def show_game_menu():
@@ -69,7 +70,7 @@ def show_game_menu():
 
 def ask_user_name():
     """
-    Asks for a valid player name.
+    Asks for a player name.
     """
     global player_name
     while True:
