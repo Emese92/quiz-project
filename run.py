@@ -1,6 +1,6 @@
 import random
 from datetime import datetime
-#import pyfiglet
+import pyfiglet
 from termcolor import cprint
 import gspread
 from google.oauth2.service_account import Credentials
@@ -74,7 +74,7 @@ def ask_user_name():
     """
     global player_name
     while True:
-        name = input('To start please enter your name: ')
+        name = input('To start please enter your name: \n')
         if len(name) > 0:
             print("\n")
             print(f"Welcome {name}!\n")
@@ -167,7 +167,7 @@ def show_welcome_message():
     """
     Prints out a colored title formatted with pyfiglet.
     """
-    #cprint(pyfiglet.figlet_format("Math Quiz", justify="center"), "blue")
+    cprint(pyfiglet.figlet_format("Math Quiz", justify="center"), "blue")
     print("Math quiz")
 
 
