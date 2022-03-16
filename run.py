@@ -1,6 +1,6 @@
 import random
 from datetime import datetime
-import pyfiglet
+#import pyfiglet
 from termcolor import cprint
 import gspread
 from google.oauth2.service_account import Credentials
@@ -167,7 +167,8 @@ def show_welcome_message():
     """
     Prints out a colored title formatted with pyfiglet.
     """
-    cprint(pyfiglet.figlet_format("Math Quiz", justify="center"), "blue")
+    #cprint(pyfiglet.figlet_format("Math Quiz", justify="center"), "blue")
+    print("Math quiz")
 
 
 def main():
