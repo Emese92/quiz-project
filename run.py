@@ -34,10 +34,10 @@ def show_game_menu():
     for key in menu_options.keys():
         print("   Press -", key, "- to -", menu_options[key])
     print("+--------------------------------+")
-     
+
     while True:
         print("\n")
-        game_choice = input("What would you like to do? \n")       
+        game_choice = input("What would you like to do? \n")
         if game_choice == "1":
             return start_game()
         elif game_choice == "2":
@@ -88,7 +88,7 @@ def generate_random_questions():
     """
     questions = {}
 
-    for _ in range(MAX_QUESTIONS): 
+    for _ in range(MAX_QUESTIONS):
         int_x = random.randint(5, 10)
         int_y = random.randint(1, 5)
         operators = ["+", "-", "*", "/"]
@@ -99,7 +99,7 @@ def generate_random_questions():
 
         questions.update({question: str(answer)})
     return questions
-    
+
 
 def start_game():
     """
@@ -110,7 +110,7 @@ def start_game():
     """
     questions = generate_random_questions()
     score = 0
-    
+
     for q in questions.keys():
         while True:
             try:
@@ -136,7 +136,7 @@ def show_welcome_message():
     cprint(pyfiglet.figlet_format("Math Quiz", justify="center"), "blue")
 
 
-def main():  
+def main():
     """
     Run all program functions
     """
