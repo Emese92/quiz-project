@@ -168,7 +168,6 @@ def show_welcome_message():
     Prints out a colored title formatted with pyfiglet.
     """
     cprint(pyfiglet.figlet_format("Math Quiz", justify="center"), "blue")
-    print("Math quiz")
 
 
 def main():
