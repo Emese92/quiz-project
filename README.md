@@ -1,28 +1,30 @@
 # Math Quiz
-Math quiz is a Python terminal game which runs in the Code Institute mock terminal on Heroku.
+Math quiz is a Python terminal game that runs in the Code Institute mock terminal on Heroku.
 
 Basic mathematical quiz for kids and adults. 
-It generates 10 random questions choosing from subtraction, addition, multiplication and division.
+It generates 10 random questions choosing from subtraction, addition, multiplication, and division.
 
 Live link can be found [here](https://math-quiz-01.herokuapp.com/).
 
 ## How to play
 
-- To start the game the user needs to enter a player name first.
-- The player can choose to start te game from the menu, or to look at the instuctions.
-- The game encurages you not to use any help to answer the questions.
-- It generates 10 random questions choosing from subtraction, addition, multiplication and division.
+- To start the game the user needs to enter a player's name first.
+- The player can choose to start the game from the menu or to look at the instructions.
+- The game encourages you not to use any help to answer the questions.
+- It generates 10 random questions choosing from subtraction, addition, multiplication, and division.
 - After answering the game immediately shows if it was the right answer or not.
-- After 10 questions the player gets a score, that is uploading to a google sheet with the players name and the exact time.
+- After 10 questions the player gets a score, which is uploaded to a google sheet with the player's name and the exact time.
 
 ## User Experience 
 
 ### Features
 
 - Name:
-    - To start the game the program ask to enter a name first. There is no criteria other than to have it longer than 0 character. 
+    - To start the game the program asks to enter a name first. There are no criteria other than to have it longer than 0 characters. 
+![Main](/images/main.png)
 - Menu:
     - The menu features 3 options. The player can press 1 to start the game, 2 for detailed instructions, or 3 to exit the program.
+![Menu](/images/menu.png)
 - Instructions:
     - Here the player can read about how to play the game and explains when the answer is not a whole number round up to 1 or 2 decimal places to get the correct answer.
 - Scoreboard:
@@ -35,8 +37,9 @@ I planned this project with [Lucidchart](https://www.lucidchart.com/pages/landin
 
 ## Testing
 
-- Tested maually for invalid inputs and error messages.
+- Tested manually for invalid inputs and error messages.
 - Tested in my local terminal and Heroku terminal.
+- Tested on phone and desktop.
 - The code had no problem passing through the [PEP8 validator](http://pep8online.com/checkresult#).
 
 ![PEP8](/images/pep8.png)
@@ -53,7 +56,7 @@ This project was deployed using Code Institute's mock terminal for Heroku.
     -Steps for deployment:
         - Fork or clone this repository
         - Create a new Heroku app
-        - Set the buildbacks to Python and NodeJS in that order
+        - Set the build back to Python and NodeJS in that order
         - Link the Heroku app to the repository
         - Click on Deploy
 
@@ -71,7 +74,7 @@ This game was made with python as a primary language.
 * Paint
 
 
-## Credits and aknowledgements
+## Credits and acknowledgments
 
 - To color pyfiglet[Tic Le Polard](http://tic-le-polard.blogspot.com/2015/04/python-colored-ascii-art-with-pyfiglet.html)
 - Video from Youtube for a basic quiz [HowToFAQ](https://www.youtube.com/watch?v=h4n_ByFuD90)

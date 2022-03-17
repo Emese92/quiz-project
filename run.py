@@ -35,13 +35,14 @@ def show_instructions():
     Gives instructions how to play the game.
     """
     print("Instructions\n")
-    print("In this quiz you are going to get 10 random questions.")
+    print("In this quiz, you are going to get ten random questions.")
     print("These are all basic mathematical problems.")
     print("You can mostly answer with a whole number.")
     print("When the answer is not a whole number, ")
     print("round up to 1 or 2 decimal places to get the correct answer.")
-    print("e.g. 1.5, 3.33,")
-    print("At the end of the game your score will be uploaded to a scoreboard")
+    print("e.g. 1.5, 3.33")
+    print("At the end of the game your score will be automatically ")
+    print("uploaded to a scoreboard.\n")
 
 
 def show_game_menu():
@@ -75,6 +76,7 @@ def ask_user_name():
     global player_name
     while True:
         name = input('To start please enter your name: \n')
+        player_name = name
         if len(name) > 0:
             print("\n")
             print(f"Welcome {name}!\n")
@@ -83,7 +85,7 @@ def ask_user_name():
             print("Good luck!\n")
             break
         else:
-            print("Please enter a valid name")
+            print("Please enter a valid name!")
 
 
 def show_game_over_message(score):
@@ -98,7 +100,7 @@ def show_game_over_message(score):
     elif score >= 5 and score <= 9:
         cprint("You were very close!\n", "blue")
     else:
-        cprint("Try harder next time\n", "blue")
+        cprint("Try harder next time.\n", "blue")
 
 
 def update_scoreboard(score):
