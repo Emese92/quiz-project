@@ -32,7 +32,6 @@ Live link can be found [here](https://math-quiz-01.herokuapp.com/).
 ![Instructions](/images/instructions.png)
 - Scoreboard:
     - A google sheet is connected to the program that is uploading the score, the name, and the time when a user plays the game.
-    - [Link to the scoreboard](https://docs.google.com/spreadsheets/d/17B9Sm2yHCRAlnw-Q0knb1Fnol0t7Mhr5xD8TEyN1b6c/edit?usp=sharing)
 ![Scoreboard](/images/scoreboard.png)
 
 ### Flowchart
