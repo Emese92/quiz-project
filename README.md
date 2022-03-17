@@ -11,7 +11,7 @@ Live link can be found [here](https://math-quiz-01.herokuapp.com/).
 ## How to play
 
 - To start the game the user needs to enter a player's name first.
-- The player can choose to start the game from the menu or to look at the instructions.
+- The player can choose to start the game from the menu, to look at the instructions or to exit.
 - The game encourages you not to use any help to answer the questions.
 - It generates 10 random questions choosing from subtraction, addition, multiplication, and division.
 - After answering the game immediately shows if it was the right answer or not.
@@ -28,7 +28,7 @@ Live link can be found [here](https://math-quiz-01.herokuapp.com/).
     - The menu features 3 options. The player can press 1 to start the game, 2 for detailed instructions, or 3 to exit the program.
 ![Menu](/images/menu.png)
 - Instructions:
-    - Here the player can read about how to play the game and explains when the answer is not a whole number round up to 1 or 2 decimal places to get the correct answer.
+    - Here the player can read about how to play the game and gets an explanation when the answer is not a whole number round up to 1 or 2 decimal places to get the correct answer.
 ![Instructions](/images/instructions.png)
 - Scoreboard:
     - A google sheet is connected to the program that is uploading the score, the name, and the time when a user plays the game.
@@ -53,7 +53,7 @@ I planned this project with [Lucidchart](https://www.lucidchart.com/pages/landin
 ## Bugs
 
 There are no bugs present in the deployed program.
-The only issue is on the phone screen the pyfiglet title is not fully visible. As of now, I am not sure if that is a fixable problem.
+The only issue is on the phone screen the pyfiglet title is not fully visible. The user needs to zoom out to see the whole screen. As of now, I am not sure if that is a fixable problem.
 
 
 ### Fixed bugs
