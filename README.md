@@ -80,7 +80,7 @@ This game was made with python as a primary language.
 
 ## Technologies and Libraries
 
-* [Google sheet]()
+* [Google sheet](https://www.google.com/sheets/about/)
 * [Gspread](https://pypi.org/project/gspread/)
 * [Pyfiglet](https://pypi.org/project/pyfiglet/0.7/)
 * [Termcolor](https://pypi.org/project/termcolor/)
