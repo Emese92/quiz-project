@@ -139,7 +139,8 @@ def generate_random_questions():
 def start_game():
     """
     The actual game function.
-    When correct answer is given it adds one to the score.
+    When a correct answer is given it adds one to the score.
+    It raises a Value error if not a number is given as an answer.
     CREDIT: Code inspired by a YouTube video:
     https://www.youtube.com/watch?v=h4n_ByFuD90
     """
