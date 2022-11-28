@@ -4,7 +4,7 @@ Math quiz is a Python terminal game that runs in the Code Institute mock termina
 Basic mathematical quiz for kids and adults. 
 It generates 10 random questions choosing from subtraction, addition, multiplication, and division.
 
-Live link can be found [here](https://math-quiz-01.herokuapp.com/).
+Live link can be found [here](https://math-quiz-54su.onrender.com).
 
 ![Math quiz](/images/start.png)
 
